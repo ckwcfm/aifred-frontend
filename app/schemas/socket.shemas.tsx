@@ -21,7 +21,7 @@ export const messageSchema = z.object({
   senderId: z.string(),
   status: z.enum(['pending', 'confirmed']),
   randomId: z.string().default(crypto.randomUUID()),
-  createdAt: z.date().optional(),
+  createdAt: z.coerce.date().optional(),
 })
 
 export type TMessage = z.infer<typeof messageSchema>

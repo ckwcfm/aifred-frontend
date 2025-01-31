@@ -242,6 +242,9 @@ function FormMessageContent({ message }: { message: TMessage }) {
   const form = JSON.parse(content)
   const formName = form.form
   const formInputs = form.input
+  const formSchema = form.type
+  console.log('DEBUG: (chat/FormMessageContent) - line 245', formSchema)
+
   const formFields = Object.entries(formInputs).map(([key, value]) => {
     return (
       <div className='flex flex-col' key={key}>
@@ -252,6 +255,7 @@ function FormMessageContent({ message }: { message: TMessage }) {
       </div>
     )
   })
+
   return (
     <div className='flex flex-col border border-slate-300 rounded-lg'>
       <div className='flex flex-col p-4'>
